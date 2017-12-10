@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_despacho: 2017-10-30 08:51:21
+  observacion: MyText
+  num_pedido: 1
+
+two:
+  fecha_despacho: 2017-10-30 08:51:21
+  observacion: MyText
+  num_pedido: 1
