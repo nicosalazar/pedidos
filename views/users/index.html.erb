@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h3>Users</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <%= render user %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div>
+    <a href="http://localhost:3000/users/invitation/new"><button type="button" class="btn btn-success">Enviar Invitacion</button></a>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel-body">
+
+<%= form_with(model: producto, local: true) do |form| %>
+  <% if producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+      <% producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <div class="form-group row">
+    <div class="col-md-3">
+    <%= form.label :nombre, "Nombre" %>
+    </div>
+    <div class="col-md-9">
+    <%= form.text_field :nombre, id: :producto_nombre %>
+    </div>
+  </div>
+
+    <div class="form-group row">
+      <div class="col-md-3">
+        <%= form.label :code %></div>
+        <div class="col-md-9">
+          <%= form.text_field :code, id: :producto_code %></div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= form.label :unidad_id, "Unidad de medida" %>
+      </div>
+      <div class="col-md-6">
+        <%= form.collection_select :unidad_id, @unidad, :id, :nombre,
+                                {selected: @producto.unidad_id, include_blank: 'Seleccione Unidad'},
+                                {class: "form-control"} %>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <div class="col-md-6">
+        <%= form.label :category_id, "Categoria" %>
+      </div>
+      <div class="col-md-6">
+        <%= form.collection_select :category_id, @category, :id, :name,
+                                   {selected: @producto.category_id, include_blank: 'Seleccione Categoria'},
+                                   {class: "form-control"} %>
+      </div>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-success" %>
+    </div>
+
+<% end %>
+    </div>
+  </div>
+</div>

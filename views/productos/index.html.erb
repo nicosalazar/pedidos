@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Productos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>categoria</th>
+      <th>Unidad De medida</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.code %></td>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.category ? producto.category.name : '' %></td>
+        <td><%= producto.unidad ? producto.unidad.nombre : '' %></td>
+        <td>
+          <%= button_to edit_producto_path(producto), {method: :get, class: "btn btn-info"} do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true"> </span> Editar
+          <% end %>
+        </td>
+        <td>
+          <%= button_to producto, { method: :delete, data: { confirm: '¿Está seguro?' }, class: "btn btn-danger" } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"> </span> Eliminar
+          <% end %>
+        </td>
+      </tr>
+
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= button_to new_producto_path, {method: :get, class: "btn btn-success"} do %>
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nuevo producto
+<% end %>
+
+
